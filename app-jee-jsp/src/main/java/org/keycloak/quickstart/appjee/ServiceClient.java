@@ -77,7 +77,9 @@ public class ServiceClient {
         CloseableHttpClient client = null;
         try {
         	client = createHttpClient();
-            HttpGet get = new HttpGet(getServiceUrl(req) + "/" + action);
+            String url = getServiceUrl(req) + "/" + action;
+            HttpGet get = new HttpGet(url);
+            System.out.println("Calling service at URL: " + url;
             if (session != null) {
                 get.addHeader("Authorization", "Bearer " + session.getTokenString());
             }
